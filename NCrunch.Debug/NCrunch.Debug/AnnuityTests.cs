@@ -13,4 +13,14 @@ namespace NCrunch.Debug
             Assert.Equal(FVA, actual);
         }
     }
+
+    //for this stage of dev it is fine ti have these two classes in the same document but we will
+    //eventually want to separate them.
+    public class Annuity
+    {
+        public static decimal ComputeFutureValue(int n, decimal CF, decimal i)
+        {
+            return 105;
+        }
+    }
 }
