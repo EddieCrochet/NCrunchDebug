@@ -12,6 +12,8 @@ namespace NCrunch.Debug
             var actual = Annuity.ComputeFutureValue(n, CF, i);
             Assert.Equal(FVA, actual);
         }
+        [Fact]
+        public void AssertsTrue() => Assert.True(true);
     }
 
     //for this stage of dev it is fine ti have these two classes in the same document but we will
@@ -21,6 +23,7 @@ namespace NCrunch.Debug
         public static decimal ComputeFutureValue(int n, decimal CF, decimal i)
         {
             return 105;
+            //just return correct answer for now to play with debug
         }
     }
 }
