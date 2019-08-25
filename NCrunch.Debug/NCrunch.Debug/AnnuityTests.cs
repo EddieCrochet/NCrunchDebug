@@ -17,7 +17,7 @@ namespace NCrunch.Debug
         public void AssertsTrue() => Assert.True(true);
     }
 
-    //for this stage of dev it is fine ti have these two classes in the same document but we will
+    //for this stage of dev it is fine to have these two classes in the same document but we will
     //eventually want to separate them.
     public class Annuity
     {
