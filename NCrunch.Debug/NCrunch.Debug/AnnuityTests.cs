@@ -27,4 +27,10 @@ namespace NCrunch.Debug
             //just return correct answer for now to play with debug
         }
     }
+    public interface ICalculable
+    {
+        string Name { get; }
+        decimal Value { get; }
+    }
+
 }
