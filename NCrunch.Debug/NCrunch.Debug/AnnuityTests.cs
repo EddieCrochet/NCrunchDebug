@@ -10,22 +10,35 @@ namespace NCrunch.Debug
         [InlineData(1, 100, 5, 105)]
         public void ComputesExpectedFutureValue(int n, decimal CF, decimal i, decimal FVA)
         {
-            var actual = Annuity.ComputeFutureValue(n, CF, i);
-            Assert.Equal(FVA, actual);
+            //Test now takes annuity instance
+            ICalculable annuity = new Annuity(n, CF, i);
+            Assert.Equal(FVA, annuity.Value);
         }
+        //Add in a test for name
         [Fact]
-        public void AssertsTrue() => Assert.True(true);
+        public void NameIsAnnuity()
+        {
+            ICalculable annuity = new Annuity(1, 1, 1);
+            Assert.Equal("Annuity", annuity.Name);
+        }
     }
 
     //for this stage of dev it is fine to have these two classes in the same document but we will
     //eventually want to separate them.
-    public class Annuity
+    public class Annuity : ICalculable
     {
-        public static decimal ComputeFutureValue(int n, decimal CF, decimal i)
+        private readonly int n;
+        private readonly decimal cf;
+        private readonly decimal i;
+        public Annuity(int n, decimal cf, decimal i)
         {
-            return 105;
-            //just return correct answer for now to play with debug
+            this.n = n;
+            this.cf = cf;
+            this.i = i;
         }
+        public string Name => throw new System.NotImplementedException();
+
+        public decimal Value => 105;
     }
     public interface ICalculable
     {
